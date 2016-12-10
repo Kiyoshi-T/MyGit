@@ -1,0 +1,27 @@
+
+username = 'jhondoe'
+hostname = '192.168.75.75'
+keyfile = 'C:\Users\k-takasu\Documents\keyfile.pem'
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+msg = hostname
+strconcat msg ':22 /ssh2 /auth=publickey /user='
+strconcat msg username
+strconcat msg ' /keyfile='
+strconcat msg keyfile
+
+connect msg
+
+
+wait '$' '#'
+
+COMMAND = 'ssh 10.1.1.1'
+sendln COMMAND
+
+
+;;fast ping every 0.1sec
+COMMAND = 'sudo ping 10.1.1.254 -i 0.1'
+sendln COMMAND
+
+

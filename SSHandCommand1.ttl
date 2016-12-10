@@ -1,0 +1,48 @@
+;;;;LOG File Settings (not working);;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;%Y%m%d_%H%M%S_&h.txt
+LOGSPATH = 'C:\Users\k-takasu\Documents\Tools\teraterm_log'
+getdate LOG_NAME '%Y%m%d_%H%M%S_&h_bond0_proc_CephMon001_SVMGMT.log'
+
+
+FULLPATH = LOGSPATH 
+strconcat FULLPATH LOG_NAME
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+username = 'jhondoe'
+hostname = '192.168.75.75'
+keyfile = 'C:\Users\k-takasu\Documents\keyfile.pem'
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+msg = hostname
+strconcat msg ':22 /ssh2 /auth=publickey /user='
+strconcat msg username
+strconcat msg ' /keyfile='
+strconcat msg keyfile
+
+connect msg
+
+;;get log 
+logopen FULLPATH 1 1
+
+
+wait '$' '#'
+
+
+COMMAND = 'ssh 10.1.1.10'
+sendln COMMAND
+
+
+while 1
+
+;;for evidence
+COMMAND = 'date'
+sendln COMMAND
+
+COMMAND = 'cat /proc/net/bonding/bond0'
+sendln COMMAND
+
+;;mpause is millisecond delay
+mpause 100
+
+endwhile
