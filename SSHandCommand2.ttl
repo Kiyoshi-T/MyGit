@@ -1,0 +1,47 @@
+;;;;Log file conf;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LOGSPATH = 'C:\Users\k-takasu\Desktop\terasshlog'
+getdate LOG_NAME '\%Y%m%d_%H%M%S_svr01_vmstat.log'
+
+FULLPATH = LOGSPATH
+strconcat FULLPATH LOG_NAME
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;1st ssh connection account
+username = 'k-takasu'
+hostname = '192.168.75.45'
+keyfile = 'C:\Users\k-takasu\Documents\svr01keyfile.pem'
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+msg = hostname
+strconcat msg ':22 /ssh2 /auth=publickey /user='
+strconcat msg username
+strconcat msg ' /keyfile='
+strconcat msg keyfile
+
+connect msg
+
+;; logging start
+logopen FULLPATH 1 1
+
+
+wait '$' '#'
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+COMMAND = 'su - '
+strconcat COMMAND 'k-takasu'
+sendln COMMAND
+wait 'password:'
+sendln 'k-takasu'
+
+
+;; 2nd connection id and keyfile;;;;;;;;;;;;;;;;;;;;;;;
+COMMAND = 'ssh '
+strconcat COMMAND 'ubuntu@10.1.250.101'
+strconcat COMMAND ' -i ubuntukey'
+sendln COMMAND
+
+
+COMMAND = 'vmstat 1'
+sendln COMMAND
+
