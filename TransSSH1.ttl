@@ -1,0 +1,46 @@
+
+username = 'hogeuser'
+hostname = '192.168.2.100'
+keyfile = 'hogeuser.key'
+
+;;;;Log file settings;;;;;;;;;;;;;;;;;;;;;;;;;;
+LOGSPATH = 'C:\Users\hogeuser\Documents\Tools\teraterm_log'
+getdate LOG_NAME '\%Y%m%d_%H%M%S_hoge.log'
+FULLPATH = LOGSPATH
+strconcat FULLPATH LOG_NAME
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;SSHì]ëóê›íË
+svr1 = '9999:10.1.1.200:https'
+svr2 = '9998:10.1.1.210:https'
+svr3 = '9997:10.1.1.220:https'
+svr4 = '9996:10.1.1.230:https'
+
+sprintf2 svr '%s,%s,%s,%s' svr1 svr2 svr3 svr4
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+msg = hostname
+strconcat msg ':22 /ssh2 /auth=publickey /user='
+strconcat msg username
+strconcat msg ' /keyfile='
+strconcat msg keyfile
+
+
+;;TransSSH
+strconcat msg ' /ssh-L'
+strconcat msg svr
+
+
+connect msg
+
+;; Logging 
+logopen FULLPATH 1 1
+
+wait '$' '#'
+
+;;======================================================
+COMMAND = 'date'
+sendln COMMAND
+
