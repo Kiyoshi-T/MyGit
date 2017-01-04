@@ -1,7 +1,7 @@
 ;;;;LOG File Settings (not working);;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;%Y%m%d_%H%M%S_&h.txt
 LOGSPATH = 'C:\Users\k-takasu\Documents\Tools\teraterm_log'
-getdate LOG_NAME '%Y%m%d_%H%M%S_&h_bond0_proc_CephMon001_SVMGMT.log'
+getdate LOG_NAME '%Y%m%d_%H%M%S_&h_bond0_procchk.log'
 
 
 FULLPATH = LOGSPATH 
