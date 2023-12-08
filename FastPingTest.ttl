@@ -1,7 +1,7 @@
 
-username = 'jhondoe'
+username = 'hogeuser'
 hostname = '192.168.75.75'
-keyfile = 'C:\Users\k-takasu\Documents\keyfile.pem'
+keyfile = 'C:\Users\hogeuser\Documents\keyfile.pem'
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
