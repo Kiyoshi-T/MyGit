@@ -1,6 +1,6 @@
 ;;;;LOG File Settings (not working);;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;%Y%m%d_%H%M%S_&h.txt
-LOGSPATH = 'C:\Users\k-takasu\Documents\Tools\teraterm_log'
+LOGSPATH = 'C:\Users\jhondoe\Documents\Tools\teraterm_log'
 getdate LOG_NAME '%Y%m%d_%H%M%S_&h_bond0_procchk.log'
 
 
@@ -10,7 +10,7 @@ strconcat FULLPATH LOG_NAME
 
 username = 'jhondoe'
 hostname = '192.168.75.75'
-keyfile = 'C:\Users\k-takasu\Documents\keyfile.pem'
+keyfile = 'C:\Users\jhondoe\Documents\keyfile.pem'
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
