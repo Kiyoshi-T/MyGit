@@ -1,5 +1,5 @@
 ;;;;Log file conf;;;;;;;;;;;;;;;;;;;;;;;;;;;
-LOGSPATH = 'C:\Users\k-takasu\Desktop\terasshlog'
+LOGSPATH = 'C:\Users\jhondoe\Desktop\terasshlog'
 getdate LOG_NAME '\%Y%m%d_%H%M%S_svr01_vmstat.log'
 
 FULLPATH = LOGSPATH
@@ -7,9 +7,9 @@ strconcat FULLPATH LOG_NAME
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;1st ssh connection account
-username = 'k-takasu'
+username = 'jhondoe'
 hostname = '192.168.75.45'
-keyfile = 'C:\Users\k-takasu\Documents\svr01keyfile.pem'
+keyfile = 'C:\Users\jhondoe\Documents\svr01keyfile.pem'
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -29,10 +29,10 @@ wait '$' '#'
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 COMMAND = 'su - '
-strconcat COMMAND 'k-takasu'
+strconcat COMMAND 'jhondoe'
 sendln COMMAND
 wait 'password:'
-sendln 'k-takasu'
+sendln 'jhondoe'
 
 
 ;; 2nd connection id and keyfile;;;;;;;;;;;;;;;;;;;;;;;
